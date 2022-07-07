@@ -1,0 +1,48 @@
+---
+layout: post
+title: Improving the Design of Code after Written
+permalink: improving-the-design-of-code-after-written
+date: 2014-07-21 02:50:50.000000000 +05:30
+type: post
+parent_id: '0'
+published: true
+password: ''
+status: publish
+category: Developer
+tags:
+- Refactoring
+---
+<p>I am basically a PHP programmer; always writing code in procedural way. A PHP developer won't get much chance to apply object oriented concepts; the server  side functionality will be simpler or most of the classes will be already available in the PHP framework he is using.</p>
+<p>A few months ago, I started working on Java for an android application. I had to start coding based on high level requirements, and I had no idea what types of classes needed. Moreover, for the first time I was working on a pure object oriented application.</p>
+<p>After finishing few modules, got more clear picture of the classes needed in the system. By the time the design of code became complicated: a lot of duplicate code across several classes (violation of <a href="http://en.wikipedia.org/wiki/Don't_repeat_yourself">DRY principle</a>) and many classes and methods was doing too many tasks( violation of <a href="http://en.wikipedia.org/wiki/KISS_principle">KISS principle</a>). I realized it was high time to improve the design of code. Those days I was deeply thinking how to improve the design.</p>
+<p>Finally, I had to improve the design for adding a new feature; otherwise the module for the new feature will be complicated. One weekend I took my laptop to my room and started to make the design better.</p>
+<ol>
+<li>Some classes have similar methods and member variables- Better to create a super class out of these features.</li>
+<li>Some sub-classes of the same parent have similar methods- Better to generalize the method and move to super class.</li>
+<li>Network-connector class have three set of methods. One set is for POST method and another for GET method. The third set is common to both- Better to create two sub-classes (one for POST and another for GET). In future, new HTTP methods will be added as sub-classes. </li>
+<li>Some methods consist of multiple small tasks- Better to create methods to each task and invoke the methods from the original method.</li>
+<li>Some classes are highly coupled- Better to introduce listener classes. (<a href="http://en.wikipedia.org/wiki/Observer_pattern">Observer pattern</a> in Design pattern terminology.)</li>
+<li>Most of the anonymous classes extended Network-connector-listener contains many empty methods- Better to introduce adapter classes. (No relation with <a href="http://en.wikipedia.org/wiki/Adapter_pattern">Adapter pattern</a>).</li>
+</ol>
+<p>I was improving the design based on my thoughts and observations without knowing the systematic way of doing it. There is a systematic way to accomplish it; known as refactoring. Refactoring is the technique to improve the design of an already written code by making it simple to understand so that it can be modified easily. If you have experience in object oriented programming, you may have applied many refactoring techniques. The first four steps, I explained above, are given below in refactoring terminology:</p>
+<ol>
+<li>Extract Superclass.</li>
+<li>Pull Up Method</li>
+<li>Extract Subclass</li>
+<li>Extract Method</li>
+</ol>
+<p>Exercise for YOU: Find out the refactoring terms for the remaining two steps.</p>
+<p>You wanna learn refactoring? You will get good idea about refactoring from <a href="http://www.amazon.in/gp/product/9350041243/ref=as_li_ss_tl?ie=UTF8&amp;camp=3626&amp;creative=24822&amp;creativeASIN=9350041243&amp;linkCode=as2&amp;tag=lifonthecomli-21">Code Complete</a>. You can refer <a href="http://en.wikipedia.org/wiki/Martin_Fowler">Martin Fowler</a>'s classic work <a href="http://www.amazon.in/gp/product/B007WTFWJ6/ref=as_li_ss_tl?ie=UTF8&amp;camp=3626&amp;creative=24822&amp;creativeASIN=B007WTFWJ6&amp;linkCode=as2&amp;tag=lifonthecomli-21">Refactoring: Improving The Design Of Existing Code</a> for detailed examples and the systematic way of implementing each refactoring.</p>
+<figure>
+<a href="http://www.amazon.in/gp/product/B007WTFWJ6/ref=as_li_ss_tl?ie=UTF8&camp=3626&creative=24822&creativeASIN=B007WTFWJ6&tag=lifonthecomli-21"><br />
+<img src="{{ site.baseurl }}/images/refactoring-book.png" alt="refactoring book" width="250" height="320" class="alignnone size-full wp-image-25" /><br />
+</a><br />
+</figure>
+<p>According to Martin Fowler, the first major work on refactoring is done by <a href="http://en.wikipedia.org/wiki/William_Opdyke">William Opdyke</a> in his doctoral thesis <em>Refactoring Object-Oriented Frameworks</em>. It focus on automating the refactoring process. The large part of refactoring is mechanical work: renaming identifier to make its intention clear, create class by extracting some code from one or more classes, move some code from sub-classes to super class, etc. Automated tools can be used to perform the mechanical task in order to save time and to eliminate manual errors.</p>
+<figure>
+<img src="{{ site.baseurl }}/images/eclipse-refactoring-menu.png" alt="eclipse refactoring menu" width="307" height="701" /></p>
+<figcaption>Refactoring menu in eclipse IDE.</figcaption>
+</figure>
+<p>You gonna refactor now? Be careful! Refactoring may break your application. Systematic procedure can eliminate the chance of introducing bugs. Use automated tools to avoid manual errors, and run test cases after applying each refactoring.</p>
+<blockquote><p>The first time you do something, you just do it. The second time you do something similar, you wince at the duplication, but you do the duplicate thing anyway. The third time you do something similar, you refactor - <a href="http://st-www.cs.illinois.edu/users/droberts/">Don Robert</a></p></blockquote>
+<p><em>Happy and Safe Refactoring!</em></p>
