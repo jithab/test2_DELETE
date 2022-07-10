@@ -6,7 +6,7 @@
     <itunes:author>Obama</itunes:author>
     <itunes:image href="https://github.com/jithab/test1/raw/master/obama.jpeg"/>
     <language>en-uk</language>
-    
+<!--    
 <item>
   <title>Federal Plaza Address Opposing the War in Iraq</title>
   <pubDate>2002-10-01T18:30:00.000Z</pubDate>
@@ -258,7 +258,7 @@
   <pubDate>2008-12-23T18:30:00.000Z</pubDate>
   <enclosure url="https://www.americanrhetoric.com/mp3clips/barackobama/barackobamatransitionaddress8.mp3" type="audio/mpeg" length="0"/>
 </item>
-
+-->
 <item>
   <title>9th President-Elect Weekly Transition Address</title>
   <pubDate>2009-01-02T18:30:00.000Z</pubDate>
