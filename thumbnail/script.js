@@ -6,10 +6,10 @@ $("#submit").click(() => {
     $("#form").hide();
 
     const line1 = $.trim($("#line1").val());
-    var lineHtml = `<div><b>${line1}</b></div>`;
+    var lineHtml = `<div>${line1}</div>`;
     const line2 = $.trim($("#line2").val());
     if (line2) {
-        lineHtml += `<div><b>${line2}</b></div>`;
+        lineHtml += `<div>${line2}</div>`;
         $("#content").removeClass("single_line").addClass("two_lines");
     } else {
         $("#content").removeClass("two_lines").addClass("single_line");
